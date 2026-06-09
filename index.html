@@ -283,21 +283,30 @@
 
   .hero-logo-wrap {
     position: relative;
-    width: 480px;
-    height: 480px;
+    width: 620px;
+    height: 620px;
+    animation: heroEntrada 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  @keyframes heroEntrada {
+    0% { opacity: 0; transform: scale(0.6) translateY(40px) rotate(-8deg); }
+    60% { opacity: 1; transform: scale(1.05) translateY(-8px) rotate(2deg); }
+    80% { transform: scale(0.97) translateY(4px) rotate(-1deg); }
+    100% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
   }
 
   .hero-logo-glow {
     position: absolute;
-    inset: -40px;
-    background: radial-gradient(circle, rgba(13,59,46,0.5) 0%, transparent 70%);
+    inset: -60px;
+    background: radial-gradient(circle, rgba(13,59,46,0.7) 0%, rgba(212,160,23,0.15) 40%, transparent 70%);
     border-radius: 50%;
     animation: pulse 3s ease-in-out infinite;
   }
 
   @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 0.7; }
-    50% { transform: scale(1.05); opacity: 1; }
+    50% { transform: scale(1.08); opacity: 1; }
   }
 
   .hero-logo {
@@ -306,7 +315,13 @@
     object-fit: contain;
     position: relative;
     z-index: 1;
-    filter: drop-shadow(0 0 40px rgba(13,59,46,0.6));
+    filter: drop-shadow(0 8px 40px rgba(212,160,23,0.35)) drop-shadow(0 0 80px rgba(13,59,46,0.6));
+    animation: logoFloat 4s ease-in-out infinite 1.2s;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
   }
 
   .hero-stats {
@@ -1146,7 +1161,7 @@
     .hero-btns { justify-content: center; }
     .hero-stats { justify-content: center; }
     .hero-right { order: -1; }
-    .hero-logo-wrap { width: 320px; height: 320px; }
+    .hero-logo-wrap { width: 380px; height: 380px; }
     .services-layout { grid-template-columns: 1fr; }
     .services-cta { position: static; }
     .steps-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -1160,7 +1175,7 @@
     section { padding: 70px 5%; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .hero-logo-wrap { width: 260px; height: 260px; }
+    .hero-logo-wrap { width: 300px; height: 300px; }
     .steps-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
     .testimonial-card { min-width: 85%; }
